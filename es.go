@@ -1,4 +1,4 @@
-// Package esquery provides a non-obtrusive, idiomatic and easy-to-use query
+// package osquery provides a non-obtrusive, idiomatic and easy-to-use query
 // and aggregation builder for the official Go client
 // (https://github.com/elastic/go-elasticsearch) for the ElasticSearch
 // database (https://www.elastic.co/products/elasticsearch).
@@ -21,8 +21,8 @@
 // queries and aggregations. It does not wrap the official Go client nor does it
 // require you to change your existing code in order to integrate the library.
 // Queries can be directly built with `esquery`, and executed by passing an
-// `*elasticsearch.Client` instance (with optional search parameters). Results
-// are returned as-is from the official client (e.g. `*esapi.Response` objects).
+// `*opensearch.Client` instance (with optional search parameters). Results
+// are returned as-is from the official client (e.g. `*opensearchapi.Response` objects).
 //
 // Getting started is extremely simple:
 //
@@ -97,7 +97,7 @@
 // This is also true for queries such as "bool", where fields like "must" can
 // either receive one query object, or an array of query objects. `esquery` will
 // generate an array even if there's only one query object.
-package esquery
+package osquery
 
 // Mappable is the interface implemented by the various query and aggregation
 // types provided by the package. It allows the library to easily transform the

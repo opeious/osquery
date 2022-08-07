@@ -1,4 +1,4 @@
-package esquery
+package osquery
 
 import "testing"
 

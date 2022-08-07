@@ -1,4 +1,4 @@
-package esquery
+package osquery
 
 import "github.com/fatih/structs"
 

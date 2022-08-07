@@ -40,7 +40,7 @@ go get github.com/aquasecurity/esquery
 
 ## Usage
 
-esquery provides a [method chaining](https://en.wikipedia.org/wiki/Method_chaining)-style API for building and executing queries and aggregations. It does not wrap the official Go client nor does it require you to change your existing code in order to integrate the library. Queries can be directly built with `esquery`, and executed by passing an `*elasticsearch.Client` instance (with optional search parameters). Results are returned as-is from the official client (e.g. `*esapi.Response` objects).
+esquery provides a [method chaining](https://en.wikipedia.org/wiki/Method_chaining)-style API for building and executing queries and aggregations. It does not wrap the official Go client nor does it require you to change your existing code in order to integrate the library. Queries can be directly built with `esquery`, and executed by passing an `*opensearch.Client` instance (with optional search parameters). Results are returned as-is from the official client (e.g. `*opensearchapi.Response` objects).
 
 Getting started is extremely simple:
 

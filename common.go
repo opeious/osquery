@@ -1,4 +1,4 @@
-package esquery
+package osquery
 
 // Source represents the "_source" option which is commonly accepted in ES
 // queries. Currently, only the "includes" option is supported.

@@ -1,11 +1,11 @@
-package esquery
+package osquery
 
 import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/elastic/go-elasticsearch/v7"
-	"github.com/elastic/go-elasticsearch/v7/esapi"
+	"github.com/opensearch-project/opensearch-go"
+	"github.com/opensearch-project/opensearch-go/opensearchapi"
 )
 
 // DeleteRequest represents a request to ElasticSearch's Delete By Query API,
@@ -35,22 +35,22 @@ func (req *DeleteRequest) Query(q Mappable) *DeleteRequest {
 
 // Run executes the request using the provided ElasticSearch client.
 func (req *DeleteRequest) Run(
-	api *elasticsearch.Client,
-	o ...func(*esapi.DeleteByQueryRequest),
-) (res *esapi.Response, err error) {
+	api *opensearch.Client,
+	o ...func(*opensearchapi.DeleteByQueryRequest),
+) (res *opensearchapi.Response, err error) {
 	return req.RunDelete(api.DeleteByQuery, o...)
 }
 
 // RunDelete is the same as the Run method, except that it accepts a value of
-// type esapi.DeleteByQuery (usually this is the DeleteByQuery field of an
+// type opensearchapi.DeleteByQuery (usually this is the DeleteByQuery field of an
 // elasticsearch.Client object). Since the ElasticSearch client does not provide
 // an interface type for its API (which would allow implementation of mock
 // clients), this provides a workaround. The Delete function in the ES client is
 // actually a field of a function type.
 func (req *DeleteRequest) RunDelete(
-	del esapi.DeleteByQuery,
-	o ...func(*esapi.DeleteByQueryRequest),
-) (res *esapi.Response, err error) {
+	del opensearchapi.DeleteByQuery,
+	o ...func(*opensearchapi.DeleteByQueryRequest),
+) (res *opensearchapi.Response, err error) {
 	var b bytes.Buffer
 	err = json.NewEncoder(&b).Encode(map[string]interface{}{
 		"query": req.query.Map(),
