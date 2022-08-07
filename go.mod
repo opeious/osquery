@@ -1,4 +1,4 @@
-module github.com/aquasecurity/esquery
+module github.com/opeious/osquery
 
 go 1.13
 
