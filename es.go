@@ -3,12 +3,12 @@
 // (https://github.com/elastic/go-elasticsearch) for the ElasticSearch
 // database (https://www.elastic.co/products/elasticsearch).
 //
-// esquery alleviates the need to use extremely nested maps
+// osquery alleviates the need to use extremely nested maps
 // (map[string]interface{}) and serializing queries to JSON manually. It also
 // helps eliminating common mistakes such as misspelling query types, as
 // everything is statically typed.
 //
-// Using `esquery` can make your code much easier to write, read and maintain,
+// Using `osquery` can make your code much easier to write, read and maintain,
 // and significantly reduce the amount of code you write.
 //
 //
@@ -17,10 +17,10 @@
 //
 //
 //
-// esquery provides a method chaining-style API for building and executing
+// osquery provides a method chaining-style API for building and executing
 // queries and aggregations. It does not wrap the official Go client nor does it
 // require you to change your existing code in order to integrate the library.
-// Queries can be directly built with `esquery`, and executed by passing an
+// Queries can be directly built with `osquery`, and executed by passing an
 // `*opensearch.Client` instance (with optional search parameters). Results
 // are returned as-is from the official client (e.g. `*opensearchapi.Response` objects).
 //
@@ -32,7 +32,7 @@
 //         "context"
 //         "log"
 //
-//         "github.com/aquasecurity/esquery"
+//         "github.com/aquasecurity/osquery"
 //         "github.com/elastic/go-elasticsearch/v7"
 //     )
 //
@@ -44,11 +44,11 @@
 //         }
 //
 //         // run a boolean search query
-//         qRes, err := esquery.Query(
-//             esquery.
+//         qRes, err := osquery.Query(
+//             osquery.
 //                 Bool().
-//                 Must(esquery.Term("title", "Go and Stuff")).
-//                 Filter(esquery.Term("tag", "tech")),
+//                 Must(osquery.Term("title", "Go and Stuff")).
+//                 Filter(osquery.Term("tag", "tech")),
 //             ).Run(
 //                 es,
 //                 es.Search.WithContext(context.TODO()),
@@ -61,9 +61,9 @@
 //         defer qRes.Body.Close()
 //
 //         // run an aggregation
-//         aRes, err := esquery.Aggregate(
-//             esquery.Avg("average_score", "score"),
-//             esquery.Max("max_score", "score"),
+//         aRes, err := osquery.Aggregate(
+//             osquery.Avg("average_score", "score"),
+//             osquery.Max("max_score", "score"),
 //         ).Run(
 //             es,
 //             es.Search.WithContext(context.TODO()),
@@ -84,7 +84,7 @@
 //
 //
 //
-//* esquery currently supports version 7 of the ElasticSearch Go client.
+//* osquery currently supports version 7 of the ElasticSearch Go client.
 //* The library cannot currently generate "short queries". For example,
 //  whereas ElasticSearch can accept this:
 //
@@ -95,7 +95,7 @@
 //     { "query": { "term": { "user": { "value": "Kimchy" } } } }
 //
 // This is also true for queries such as "bool", where fields like "must" can
-// either receive one query object, or an array of query objects. `esquery` will
+// either receive one query object, or an array of query objects. `osquery` will
 // generate an array even if there's only one query object.
 package osquery
 

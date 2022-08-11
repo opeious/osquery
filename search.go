@@ -198,13 +198,13 @@ func (req *SearchRequest) RunSearch(
 }
 
 // Query is a shortcut for creating a SearchRequest with only a query. It is
-// mostly included to maintain the API provided by esquery in early releases.
+// mostly included to maintain the API provided by osquery in early releases.
 func Query(q Mappable) *SearchRequest {
 	return Search().Query(q)
 }
 
 // Aggregate is a shortcut for creating a SearchRequest with aggregations. It is
-// mostly included to maintain the API provided by esquery in early releases.
+// mostly included to maintain the API provided by osquery in early releases.
 func Aggregate(aggs ...Aggregation) *SearchRequest {
 	return Search().Aggs(aggs...)
 }
